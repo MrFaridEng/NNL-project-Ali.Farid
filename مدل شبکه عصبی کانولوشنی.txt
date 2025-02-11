@@ -1,0 +1,10 @@
+model = keras.Sequential([
+    keras.layers.Reshape((28, 28, 1), input_shape=(28, 28)),  # اضافه کردن بعد کانال رنگی
+    keras.layers.Conv2D(32, (3, 3), activation='relu'),  # لایه کانولوشنی اول
+    keras.layers.MaxPooling2D((2, 2)),  # کاهش ابعاد با مکثولینگ
+    keras.layers.Conv2D(64, (3, 3), activation='relu'),  # لایه کانولوشنی دوم
+    keras.layers.MaxPooling2D((2, 2)),  # مکثولینگ مجدد
+    keras.layers.Flatten(),  # صاف کردن خروجی برای لایه متصل به هم
+    keras.layers.Dense(128, activation='relu'),  # لایه کاملاً متصل با 128 نورون
+    keras.layers.Dense(10, activation='softmax')  # لایه خروجی با 10 نورون (اعداد 0 تا 9)
+])
